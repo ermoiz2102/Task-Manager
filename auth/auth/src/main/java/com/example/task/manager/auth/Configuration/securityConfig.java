@@ -32,14 +32,10 @@ public class securityConfig  {
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/public").permitAll()
 
+
+
                 )
-
-
-
-
-
-
-        ;
+                .formLogin(formlogin -> formlogin.loginPage("/login").permitAll());
 
         return http.build();
         

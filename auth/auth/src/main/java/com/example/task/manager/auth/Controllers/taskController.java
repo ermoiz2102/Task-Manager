@@ -64,12 +64,12 @@ public class taskController {
             return  new ResponseEntity<>(e.toString(),HttpStatus.BAD_REQUEST);
         }
     }
-    @PostMapping("/user/change-task")
+    @GetMapping("/user/change-task")
     private ResponseEntity changeask(changeTaskRequest changeTaskRequest){
         try{
 
             String result=taskService.changeTask(changeTaskRequest);
-            return new ResponseEntity<>(result, HttpStatus.CREATED);
+            return new ResponseEntity<>("dfsfadaf", HttpStatus.CREATED);
         }
         catch (Exception e){
             return new ResponseEntity<>(e.toString(),HttpStatus.BAD_REQUEST);
@@ -77,8 +77,8 @@ public class taskController {
 
 
     }
-    @PostMapping("/public")
-    private ResponseEntity forall(){
+    @GetMapping("/public")
+    private ResponseEntity<String> forall(){
         return new ResponseEntity<>("welcome to task page",HttpStatus.CREATED);
     }
 }
