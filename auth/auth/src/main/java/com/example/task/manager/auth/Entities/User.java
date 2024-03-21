@@ -19,7 +19,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer emp_id;
 
-    private  String userName;
+    private  String username;
 
     private String mobNo;
 

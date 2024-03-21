@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/api")
 public class taskController {
     @Autowired
     private taskServiceImpl taskService;
 
-    @PostMapping("/add-task")
+    @PostMapping("/admin/add-task")
     private ResponseEntity addTask(addTaskRequest addTaskRequest){
         try{
 
@@ -30,7 +30,7 @@ public class taskController {
         }
 
     }
-    @PostMapping("/change-task")
+    @PostMapping("/admin/change-task")
     private ResponseEntity changeTask(changeTaskRequest changeTaskRequest){
         try{
 
@@ -42,7 +42,7 @@ public class taskController {
         }
 
     }
-    @PostMapping("/pair-task")
+    @PostMapping("/admin/pair-task")
     private ResponseEntity pairTask(pairTaskRequest pairTaskRequest){
         try{
 
@@ -54,7 +54,7 @@ public class taskController {
         }
 
     }
-    @GetMapping("/get-task")
+    @GetMapping("/admin/get-task")
     private ResponseEntity getTask(){
         try{
             List<task> taskList=taskService.getTask();
@@ -63,5 +63,22 @@ public class taskController {
         catch(Exception e){
             return  new ResponseEntity<>(e.toString(),HttpStatus.BAD_REQUEST);
         }
+    }
+    @PostMapping("/user/change-task")
+    private ResponseEntity changeask(changeTaskRequest changeTaskRequest){
+        try{
+
+            String result=taskService.changeTask(changeTaskRequest);
+            return new ResponseEntity<>(result, HttpStatus.CREATED);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(e.toString(),HttpStatus.BAD_REQUEST);
+        }
+
+
+    }
+    @PostMapping("/public")
+    private ResponseEntity forall(){
+        return new ResponseEntity<>("welcome to task page",HttpStatus.CREATED);
     }
 }

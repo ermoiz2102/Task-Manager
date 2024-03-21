@@ -12,7 +12,7 @@ public interface taskService {
 
     String pairTask(pairTaskRequest pairTaskRequest);
 
-    String changeTask(changeTaskRequest changeTaskRequest);
+    String changeTask(changeTaskRequest changeTaskRequest) throws Exception;
 
     List<task> getTask();
 }
