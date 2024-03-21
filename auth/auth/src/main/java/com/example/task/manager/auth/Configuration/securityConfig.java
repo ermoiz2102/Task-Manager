@@ -33,7 +33,13 @@ public class securityConfig  {
                         .requestMatchers("/api/public").permitAll()
 
                 )
-                ;
+
+
+
+
+
+
+        ;
 
         return http.build();
         
